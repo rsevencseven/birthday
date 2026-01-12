@@ -40,12 +40,13 @@ body {
 
 .container p {
   color: #555;
-  /* font-family: 'Dancing Script', cursive;*/
-  font-size: 18px;
+  /*font-family: 'Dancing Script', cursive;*/
+  font-size: 16px;
   line-height: 1.8;
   text-align: justify;
   margin-bottom: 20px;
 }
+
 
 
 .container img {
@@ -85,6 +86,8 @@ body {
   animation: float 6s infinite ease-in-out;
 }
 
+
+
 @keyframes float {
   0% { transform: translateX(0); }
   50% { transform: translateX(25px); }
@@ -100,4 +103,11 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.pista {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 14px;
+  opacity: 0.25;
 }
