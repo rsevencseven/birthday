@@ -123,14 +123,11 @@ body {
 .hearts {
   position: fixed;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 41%;
   font-size: 17px;
   opacity: 0.6;
   animation: float 10s infinite ease-in-out;
-  white-space: nowrap;
 }
-
 
 @keyframes float {
   0% { transform: translateX(0); }
