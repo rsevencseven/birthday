@@ -1,0 +1,122 @@
+:root {
+  --primary: #f08080;
+  --bg-color: #f2acac;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* El cuerpo del sobre */
+.envelope-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #f08080;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* La solapa del sobre (triángulo superior) */
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  border-top: 130px solid #f08080;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease;
+}
+
+/* Los lados del sobre */
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #e67373;
+  border-bottom: 100px solid #e67373;
+  border-left: 150px solid #e67373;
+  z-index: 3;
+}
+
+/* La carta */
+.letter {
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  width: 70%;
+  height: 80%;
+  background: white;
+  z-index: 2;
+  padding: 15px;
+  transition: all 0.5s ease;
+}
+
+/* Estado Abierto */
+.envelope-wrapper.open .envelope::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-100px);
+  z-index: 5; /* Sube la carta por encima de todo */
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  z-index: 6;
+  /*background-color: #ff4d4d; /* Cambié a rojo, pero puedes dejarlo black */
+  /*transform: translate(-50%, -20%);  Centra horizontalmente y ajusta vertical
+  clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
+  transition: transform 0.5s ease; */
+}
+
+.letter a {
+  color: #a55cc2;              /* color principal */
+  text-decoration: none;       /* quita el subrayado feo */
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* subrayado animado */
+.letter a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #79418f;
+  transition: width 0.3s ease;
+}
+
+.letter a:hover {
+  color: #79418f;
+}
+
+.letter a:hover::after {
+  width: 100%;
+}
